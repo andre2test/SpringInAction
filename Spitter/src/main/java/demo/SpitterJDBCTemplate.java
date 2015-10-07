@@ -23,10 +23,11 @@ public class SpitterJDBCTemplate {
 	 */
 	public void create(String username, String password, String fullname){
 		String SQL = "insert into Spitter (username, password, fullname) values (?, ?, ?)";
-	      
-	    jdbcTemplateObject.update( SQL, username, password, fullname);
-	    System.out.println("Created User Name = " + username 
+	    
+		System.out.println("Created User Name = " + username 
 	    		+ " Password = " + password + "Full Name = " + fullname);
+	    jdbcTemplateObject.update( SQL, username, password, fullname);
+	    
 	    return;
 		
 	}
@@ -40,10 +41,12 @@ public class SpitterJDBCTemplate {
 	}
 	
 	public void updatePassword(String username, String password){
+		
 		String SQL = "update Spitter set password  = ? where username = ? ";
-	    jdbcTemplateObject.update(SQL,  password);
-	    System.out.println("Updated Record for User Name = " + username 
-	    		+ " with Password = " + password );
+		System.out.println("Updated Record for User Name = " + username 
+	    		+ " with Password = " + password + "SQL: " + SQL );
+	    jdbcTemplateObject.update(SQL, password, username);
+	    
 	    return;
 	}
 	

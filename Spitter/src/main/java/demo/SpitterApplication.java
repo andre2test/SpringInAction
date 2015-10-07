@@ -12,11 +12,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class SpitterApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpitterApplication.class, args);
         
         ApplicationContext context =  new ClassPathXmlApplicationContext("/Beans.xml");
         
-        SpitterJDBCTemplate spitterJDBCTemplate =  (SpitterJDBCTemplate)context.getBean("spitterJDBCTemplate");
+        SpitterJDBCTemplate spitterJDBCTemplate =  (SpitterJDBCTemplate) context.getBean("spitterJDBCTemplate");
 	     
 	     System.out.println("------Records Creation--------" );
 	     spitterJDBCTemplate.create("KnifeHead", "knife12", "Ricardo Jiminez");
